@@ -1,2 +1,5 @@
-# opf-time-series
-Time Series Classification with the Optimum-Path Forest algorithm
+# OPF in Time Series
+
+Time Series Classification using the Optimum-Path Forest algorithm.
+
+Data was taken from UCRArchive2018.
