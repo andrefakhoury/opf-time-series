@@ -11,8 +11,13 @@ def read_df(df_name):
 
     X, _y = df.iloc[:, 1:], df.iloc[:, 0]
     X_test, _y_test = df_test.iloc[:, 1:], df_test.iloc[:, 0]
-    dataset_error = datasets_df.loc[datasets_df['Name'] == df_name].iloc[:, 7].values[0]
+    
+    # replace nan values with mean of row in both X and X_test
+    X = X.where(X.notna(), X.mean(axis=1), axis=0)
+    X_test = X_test.where(X_test.notna(), X_test.mean(axis=1), axis=0)
 
+    X = np.array(X, dtype=float)
+    X_test = np.array(X_test, dtype=float)
     y = np.array(_y, dtype=int)
     y_test = np.array(_y_test, dtype=int)
 
@@ -22,5 +27,12 @@ def read_df(df_name):
     for k, v in mp_y.items():
         y[_y == k] = v
         y_test[_y_test == k] = v
+        
+    df_row = datasets_df.loc[datasets_df['Name'] == df_name]
+    df_errors = {
+        "ED": df_row.iloc[:, 7].values[0],
+        "DTW": df_row.iloc[:, 8].values[0],
+        "DTW_W100": df_row.iloc[:, 9].values[0],
+    }
 
-    return X, y, X_test, y_test, dataset_error
+    return X, y, X_test, y_test, df_errors
