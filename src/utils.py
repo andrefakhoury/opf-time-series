@@ -4,6 +4,18 @@ import pandas as pd
 def error(Y, Y_pred):
     return (len(Y) - np.count_nonzero(Y == Y_pred))/len(Y)
 
+# 1-NN classify
+def euclidean_distance_classify(X, y, X_test):
+    preds = []
+    for x_test in X_test:
+        best_idx, best_dist = -1, np.inf
+        for idx, x in enumerate(X):
+            cur_dist = np.linalg.norm(x - x_test)
+            if best_idx == -1 or cur_dist < best_dist:
+                best_idx, best_dist = idx, cur_dist
+        preds.append(y[best_idx])
+    return preds
+
 def read_df(df_name):
     df = pd.read_table(f'data/UCRArchive_2018/{df_name}/{df_name}_TRAIN.tsv', header=None)
     df_test = pd.read_table(f'data/UCRArchive_2018/{df_name}/{df_name}_TEST.tsv', header=None)

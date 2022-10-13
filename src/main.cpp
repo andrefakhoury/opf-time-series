@@ -10,7 +10,6 @@
 #include <cmath>
 #include <fstream>
 #include <sstream>
-#include "dtw.hpp"
 #include "utils.hpp"
 #include "OPFClassifier.cpp"
 using namespace std;
@@ -21,9 +20,9 @@ int main() {
 	vector<vector<double>> X, X_test;
 	vector<int> y, y_test;
 
-	readDF("DodgerLoopGame", X, y, X_test, y_test);
+	readDF("WordSynonyms", X, y, X_test, y_test);
 
-	OPFClassifier opf(0);
+	OPFClassifier opf(2);
 	opf.fit(X, y);
 
 	auto preds = opf.classify(X_test);

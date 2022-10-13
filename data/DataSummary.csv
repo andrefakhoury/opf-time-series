@@ -85,9 +85,9 @@
 84,Motion,WormsTwoClass,181,77,2,900,0.3896,0.4156 (7),0.3766,0.4286,A. Bagnall
 85,Image,Yoga,300,3000,2,426,0.1697,0.1560 (7),0.1637,0.4643,L. Wei & E. Keogh
 86,Device,ACSF1,100,100,10,1460,0.4600,0.3800 (4),0.3600,0.9000,P. Schafer
-87,Sensor,AllGestureWiimoteX,300,700,10,Vary,0.4843, 0.2829 (14),0.2843,0.9000,J. Guna
-88,Sensor,AllGestureWiimoteY,300,700,10,Vary,0.4314, 0.2700 (9),0.2714,0.9000,J. Guna
-89,Sensor,AllGestureWiimoteZ,300,700,10,Vary,0.5457,0.3486 (11),0.3571,0.9000,J. Guna
+87,Sensor,AllGestureWiimoteX,300,700,10,500,0.4843, 0.2829 (14),0.2843,0.9000,J. Guna
+88,Sensor,AllGestureWiimoteY,300,700,10,500,0.4314, 0.2700 (9),0.2714,0.9000,J. Guna
+89,Sensor,AllGestureWiimoteZ,300,700,10,500,0.5457,0.3486 (11),0.3571,0.9000,J. Guna
 90,Simulated,BME,30,150,3,128,0.1667,0.0200 (4),0.1000,0.6667,Joseph Fourier University
 91,Traffic,Chinatown,20,343,2,24,0.0466,0.0466 (0),0.0437,0.2741,H.A. Dau
 92,Image,Crop,7200,16800,24,46,0.2883,0.2883 (0),0.3348,0.9583,F. Petitjean
@@ -100,11 +100,11 @@
 99,Sensor,FreezerRegularTrain,150,2850,2,301,0.1951,0.0930 (1),0.1011,0.5000,REFIT project
 100,Sensor,FreezerSmallTrain,28,2850,2,301,0.3242,0.3242 (0),0.2411,0.5000,REFIT project
 101,HRM,Fungi,18,186,18,201,0.1774,0.1774 (0),0.1613,0.8978,W. Fonzi
-102,Trajectory,GestureMidAirD1,208,130,26,Vary,0.4231, 0.3615 (5),0.4308,0.9615,H. A. Dau
-103,Trajectory,GestureMidAirD2,208,130,26,Vary,0.5077, 0.4000 (6),0.3923,0.9615,H. A. Dau
-104,Trajectory,GestureMidAirD3,208,130,26,Vary,0.6538, 0.6231 (1),0.6769,0.9615,H. A. Dau
-105,Sensor,GesturePebbleZ1,132,172,6,Vary,0.2674,0.1744 (2),0.2093,0.8140,I. Maglogiannis
-106,Sensor,GesturePebbleZ2,146,158,6,Vary,0.3291,0.2215 (6),0.3291,0.8101,I. Maglogiannis
+102,Trajectory,GestureMidAirD1,208,130,26,360,0.4231, 0.3615 (5),0.4308,0.9615,H. A. Dau
+103,Trajectory,GestureMidAirD2,208,130,26,360,0.5077, 0.4000 (6),0.3923,0.9615,H. A. Dau
+104,Trajectory,GestureMidAirD3,208,130,26,360,0.6538, 0.6231 (1),0.6769,0.9615,H. A. Dau
+105,Sensor,GesturePebbleZ1,132,172,6,455,0.2674,0.1744 (2),0.2093,0.8140,I. Maglogiannis
+106,Sensor,GesturePebbleZ2,146,158,6,455,0.3291,0.2215 (6),0.3291,0.8101,I. Maglogiannis
 107,Motion,GunPointAgeSpan,135,316,2,150,0.1013,0.0348 (3),0.0823,0.4937,A. Ratanamahatana & E. Keogh
 108,Motion,GunPointMaleVersusFemale,135,316,2,150,0.0253,0.0253 (0),0.0032,0.4747,A. Ratanamahatana & E. Keogh
 109,Motion,GunPointOldVersusYoung,136,315,2,150,0.0476,0.0349 (4),0.1619,0.4762,A. Ratanamahatana & E. Keogh
@@ -114,16 +114,16 @@
 113,Traffic,MelbournePedestrian,1194,2439,10,24,0.1525,0.1845 (1),0.2091,0.8995,H.A. Dau
 114,Image,MixedShapesRegularTrain,500,2425,5,1024,0.1027, 0.0911 (4),0.1584,0.7303,E. Keogh
 115,Image,MixedShapesSmallTrain,100,2425,5,1024,0.1645, 0.1674 (7),0.2202,0.7303,E. Keogh
-116,Sensor,PickupGestureWiimoteZ,50,50,10,Vary,0.4400,0.3400 (17),0.3400,0.9000,J. Guna
+116,Sensor,PickupGestureWiimoteZ,50,50,10,361,0.4400,0.3400 (17),0.3400,0.9000,J. Guna
 117,Hemodynamics,PigAirwayPressure,104,208,52,2000,0.9423,0.9038 (1),0.8942,0.9808,M. Guillame-Bert
 118,Hemodynamics,PigArtPressure,104,208,52,2000,0.8750,0.8029 (1),0.7548,0.9808,M. Guillame-Bert
 119,Hemodynamics,PigCVP,104,208,52,2000,0.9183,0.8413 (11),0.8462,0.9808,M. Guillame-Bert
-120,Device,PLAID,537,537,11,Vary,0.4767,0.1657 (12),0.1639,0.8380,P. Schafer
+120,Device,PLAID,537,537,11,1344,0.4767,0.1657 (12),0.1639,0.8380,P. Schafer
 121,Power,PowerCons,180,180,2,144,0.0667,0.0778 (3),0.1222,0.5000,"EDF R&D, France"
 122,Spectrum,Rock,20,50,4,2844,0.1600, 0.1600 (0),0.4000,0.5800,Y. Zhu
 123,Spectrum,SemgHandGenderCh2,300,600,2,1500,0.2383,0.1550 (1),0.1983,0.3500,C.-C. M. Yeh
 124,Spectrum,SemgHandMovementCh2,450,450,6,1500,0.6311,0.3622 (1),0.4156,0.8333,C.-C. M. Yeh
 125,Spectrum,SemgHandSubjectCh2,450,450,5,1500,0.5956,0.2000 (3),0.2733,0.8000,C.-C. M. Yeh
-126,Sensor,ShakeGestureWiimoteZ,50,50,10,Vary,0.4000,0.1600 (6),0.1400,0.9000,J. Guna
+126,Sensor,ShakeGestureWiimoteZ,50,50,10,385,0.4000,0.1600 (6),0.1400,0.9000,J. Guna
 127,Simulated,SmoothSubspace,150,150,3,15,0.0933,0.0533 (1),0.1733,0.6667,X. Huang
 128,Simulated,UMD,36,144,3,150,0.2361,0.0278 (6),0.0069,0.6667,Joseph Fourier University
