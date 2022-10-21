@@ -75,24 +75,30 @@ struct OPFClassifier {
 
 	vector<int> findPrototypes(vector<vector<pair<int, double>>> const& adj, vector<int> const& y) {
 		const int n = adj.size();
-		
-		DSU uf(n);
-		vector<tuple<double, int, int>> edges;
-		for (int i = 0; i < n; i++) {
-			for (auto& [u, w] : adj[i]) {
-				edges.emplace_back(w, i, u);
-			}
-		}
 
-		sort(edges.begin(), edges.end());
+		vector<bool> selected(n, false);
+		vector<int> parent(n, -1);
+		vector<double> cost(n, 1e18);
+		cost[0] = 0;
 
 		vector<int> prototypes;
-		for (auto& [w, u, v] : edges) {
-			if (!uf.same(u, v)) {
-				uf.merge(u, v);
-				if (y[u] != y[v]) {
-					prototypes.push_back(u);
-					prototypes.push_back(v);
+		for (int it = 0; it < n; it++) {
+			int v = -1;
+			for (int j = 0; j < n; j++) {
+				if (selected[j]) continue;
+				if (v == -1 || cost[j] < cost[v])
+					v = j;
+			}
+
+			selected[v] = true;
+			if (parent[v] != -1 && y[v] != y[parent[v]]) {
+				prototypes.push_back(parent[v]);
+				prototypes.push_back(v);
+			}
+			for (auto [to, w] : adj[v]) {
+				if (w < cost[to]) {
+					cost[to] = w;
+					parent[to] = v;
 				}
 			}
 		}

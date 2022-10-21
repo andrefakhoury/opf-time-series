@@ -22,7 +22,7 @@ int main() {
 
 	readDF("WordSynonyms", X, y, X_test, y_test);
 
-	OPFClassifier opf(2);
+	OPFClassifier opf("euclidean-distance");
 	opf.fit(X, y);
 
 	auto preds = opf.classify(X_test);
