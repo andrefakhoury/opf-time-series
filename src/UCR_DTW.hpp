@@ -194,7 +194,6 @@ double dtw(vector<double> const& A, vector<double> const& B, vector<double>& cb,
 
 double ucr_dtw(vector<double> const& vdata, vector<double> q, int r) {
 	const int m = q.size();
-
 	r = min(r, m);
 
 	/// For every EPOCH points, all cummulative values, such as ex (sum), ex2 (sum square), will be restarted for reducing the floating point error.

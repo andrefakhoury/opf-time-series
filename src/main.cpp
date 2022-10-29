@@ -20,9 +20,9 @@ int main() {
 	vector<vector<double>> X, X_test;
 	vector<int> y, y_test;
 
-	readDF("WordSynonyms", X, y, X_test, y_test);
+	readDF("MelbournePedestrian", X, y, X_test, y_test);
 
-	OPFClassifier opf("euclidean-distance");
+	OPFClassifier opf("dtw-distance");
 	opf.fit(X, y);
 
 	auto preds = opf.classify(X_test);

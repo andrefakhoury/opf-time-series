@@ -49,10 +49,13 @@ class OptimumPathForestClassifier:
         Y = np.array(Y_, copy=True, dtype=int)
         
         # First of all, builds the graph
-        self.adj = defaultdict(list)
+        self.adj = [[(-1, -1) for j in range(n)] for i in range(n)]
         self.edges = []
         for u in range(n):
-            self.adj[u] = [(v, self.F(self.X[u], self.X[v])) for v in range(n)]
+            for v in range(u, n):
+                w = self.F(self.X[u], self.X[v])
+                self.adj[u][v] = (v, w)
+                self.adj[v][u] = (u, w)
             self.edges += [(w, u, v) for v, w in self.adj[u]]
         
         # Runs MST (Kruskal) to choose PROTOTYPES (seed vertices)
