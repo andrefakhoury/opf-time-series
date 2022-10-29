@@ -192,30 +192,14 @@ double dtw(vector<double> const& A, vector<double> const& B, vector<double>& cb,
 	return costPrev[k - 1];
 }
 
-double ucr_dtw(vector<double> const& vdata, vector<double> q, double R) {
+double ucr_dtw(vector<double> const& vdata, vector<double> q, int r) {
 	const int m = q.size();
 
-	int r = R * m;
-	if (R > 1)
-		r = floor(R);
+	r = min(r, m);
 
 	/// For every EPOCH points, all cummulative values, such as ex (sum), ex2 (sum square), will be restarted for reducing the floating point error.
 	const int EPOCH = min(100000, (int) vdata.size());
 	vector<double> buffer(EPOCH), u_buff(EPOCH), l_buff(EPOCH);
-
-	// double bsf;
-	// double d;
-	// long long i , j;
-	// double ex , ex2 , mean, std;
-	// int kim = 0,keogh = 0, keogh2 = 0;
-	// double dist=0, lb_kim=0, lb_k=0, lb_k2=0;
-
-	// /// malloc everything here
-	// vector<int> order(m);
-	// vector<double> u_d(m);
-	// vector<double> l_d(m);
-	// vector<double> t(m * 2), tz(m);
-	
 
 	// z normalization
 	auto z_norm = [](vector<double>& q) {

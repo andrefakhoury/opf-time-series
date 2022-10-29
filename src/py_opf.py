@@ -35,7 +35,8 @@ class OptimumPathForestClassifier:
         available_cost_functions = {
             'euclidean-distance': lambda x, y: np.linalg.norm(x - y),
             'manhattan-distance': lambda x, y: np.sum(np.abs(x - y)),
-            'dtw-distance': lambda x, y: dtw.distance_fast(x, y, window=100, use_pruning=True)
+            'dtw-distance': lambda x, y: dtw.distance_fast(x, y, window=int(0.1*len(x)), use_pruning=True),
+            'dtw-slow': lambda x, y: dtw.distance(x, y, window=int(0.1*len(x)), use_pruning=False)
         }
         assert cost in available_cost_functions.keys(),\
             f"Invalid cost function. Should be one of {available_cost_functions.keys()}"

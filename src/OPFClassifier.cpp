@@ -67,8 +67,8 @@ struct OPFClassifier {
 	OPFClassifier(int F_DIST) : F_DISTANCE{static_cast<ENUM_DISTANCE>(F_DIST)} {}
 
 	double F(vector<double> const& x, vector<double> const& y) {
-		if (F_DISTANCE == DTW_DISTANCE) return ucr_dtw(x, y, 0.2);
-		else if (F_DISTANCE == DTW_PRUNED) return ucr_dtw(x, y, 0.2);
+		if (F_DISTANCE == DTW_DISTANCE) return ucr_dtw(x, y, 50);
+		else if (F_DISTANCE == DTW_PRUNED) return ucr_dtw(x, y, 50);
 		else if (F_DISTANCE == EUCLIDEAN) return euclideanDistance(x, y);
 		else assert(0);
 	}
@@ -115,11 +115,11 @@ struct OPFClassifier {
 		const int n = y.size();
 		X = X_;
 
-		vector<vector<pair<int, double>>> adj(n);
+		vector<vector<pair<int, double>>> adj(n, vector<pair<int, double>>(n));
 		for (int i = 0; i < n; i++) {
-			adj[i].resize(n);
-			for (int j = 0; j < n; j++) {
+			for (int j = i; j < n; j++) {
 				adj[i][j] = {j, F(X[i], X[j])};
+				adj[j][i] = {i, adj[i][j].second};
 			}
 		}
 

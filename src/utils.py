@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+from dtaidistance import dtw
 
 def error(Y, Y_pred):
     return (len(Y) - np.count_nonzero(Y == Y_pred))/len(Y)
@@ -11,6 +12,19 @@ def euclidean_distance_classify(X, y, X_test):
         best_idx, best_dist = -1, np.inf
         for idx, x in enumerate(X):
             cur_dist = np.linalg.norm(x - x_test)
+            if best_idx == -1 or cur_dist < best_dist:
+                best_idx, best_dist = idx, cur_dist
+        preds.append(y[best_idx])
+    return preds
+
+
+# 1-NN classify. DTW w=10%
+def dtw_distance_classify(X, y, X_test):
+    preds = []
+    for x_test in X_test:
+        best_idx, best_dist = -1, np.inf
+        for idx, x in enumerate(X):
+            cur_dist = dtw.distance_fast(x, x_test, window=int(0.1*len(x)), use_pruning=True)
             if best_idx == -1 or cur_dist < best_dist:
                 best_idx, best_dist = idx, cur_dist
         preds.append(y[best_idx])
