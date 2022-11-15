@@ -74,6 +74,7 @@ class OptimumPathForestClassifier:
         self.cost = np.ones(n) * np.inf
         self.cost[self.prototypes] = 0
         self.label[self.prototypes] = Y[self.prototypes]
+        self.parent = np.ones(n, dtype=int) * -1
         
         pq = [[0., u] for u in self.prototypes]
         heapq.heapify(pq)
@@ -85,6 +86,7 @@ class OptimumPathForestClassifier:
                 if self.cost[v] > max(u_w, w):
                     self.cost[v] = max(u_w, w)
                     self.label[v] = self.label[u]
+                    self.parent[v] = u
                     heapq.heappush(pq, [self.cost[v], v])
         self.ordered_nodes = [(u, self.cost[u]) for u in range(n)]
         self.ordered_nodes.sort(key=itemgetter(1))
