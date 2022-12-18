@@ -1,5 +1,11 @@
-# OPF in Time Series
+# Time Series Classification Using the Optimum-Path Forest Algorithm
 
-Time Series Classification using the Optimum-Path Forest algorithm.
+The popularization of mobile sensors and other technologies that continuously collect data over time increases the demand for Machine Learning algorithms for time series. One of the most common tasks in this domain is classification.
 
-Data was taken from UCRArchive2018.
+In this scenario, this work aims to explore the Optimum-Path Forest (OPF) algorithm in the time series classification domain. The OPF is a similarity-based technique that obtained excellent results in several tasks, overcoming well-known methods such as Support Vector Machine and Gradient Boosting. However, in time series domains, OPF was never explored. One possible explanation is that this algorithm demands the calculation of a distance matrix between all objects in the dataset, which can be unviable for long time series or datasets with large volumes. In particular, the best distance measures between time series reported in the literature are calculated by $O(n^2)$ algorithms in the number of observations of the series, which increases the complexity of the classification algorithm. However, the time series literature presents a diversity of techniques to prune the calculation of distance measures, allowing a significant speedup in several applications.
+
+Therefore, this work aims to (a) evaluate the performance of OPF in time series classification and (b) propose runtime-saving techniques to turn it computationally viable, even for large data volumes. Our results from 128 datasets show that the supervised OPF classifier obtains a better accuracy than KNN in some of them. OPF using DTW distance at least draws with 1-NN using Euclidean distance in 71.9% of the datasets, and it at least draws with 1-NN using DTW distance in 39.1% of the datasets.
+
+The data was taken from [UCR Time Series Classification Archive](https://www.cs.ucr.edu/~eamonn/time_series_data_2018/). We used all datasets with equal time series length and without missing values. The UCR Archive already handles these cases (in a special folder), replacing missing values using linear interpolation and adding low-amplitude random numbers to the end of the time series with different lengths.
+
+You can see the full monograph (in English) [here](results/monograph.pdf).
